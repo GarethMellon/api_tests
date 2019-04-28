@@ -4,3 +4,4 @@ Scripts
 .idea
 *.cfg
 *.exe
+env.py
