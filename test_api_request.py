@@ -12,7 +12,7 @@ class apiTest(unittest.TestCase):
             """ Check the API responds correctly """
             self.assertTrue(req.ok)
             self.assertEqual(req.status_code, 200)
-            self.assertEqual(str(req.request), "<PreparedRequest [GET]>")
+            self.assertEqual(req.request.method, "GET")
 
             """ iterate over our data and check that information is present """
             for person in json_data["results"]:
@@ -38,7 +38,7 @@ class apiTest(unittest.TestCase):
         """ validate api POST """
         try:
             self.assertTrue(api_post.ok)
-            self.assertEqual(str(api_post.request), "<PreparedRequest [POST]>")
+            self.assertEqual(api_post.request.method, "POST")
             self.assertEqual(api_post.status_code, 200)
             self.assertEqual(api_post.reason, "OK")
 
