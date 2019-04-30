@@ -4,7 +4,9 @@ from selenium import webdriver
 
 class swapiTest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome("driver/chromedriver.exe")
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        self.driver = webdriver.Chrome("driver/chromedriver.exe", options=chrome_options)
         self.driver.get("https://swapi.co/")
 
     def test_webpage(self):
